@@ -23,6 +23,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor:yellow,
 
   },
+  button: {
+    margin: theme.spacing(1),
+  },
+  input: {
+    display: 'none',
+  },
 }));
 
 export default function ButtonAppBar() {
