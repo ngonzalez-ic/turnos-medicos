@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import useForm from 'react-hook-form'
+import firebase from '../config/config'
+
 
 const Nota=()=>{
 
@@ -11,6 +13,13 @@ const Nota=()=>{
       e.target.reset(); // reset after form submit
       alert(JSON.stringify(data));
       console.log(data);
+      firebase 
+      .firestore()
+      .collection('times')
+      .add({
+      data
+      })
+      
     };
   
     return (
@@ -31,9 +40,9 @@ const Nota=()=>{
         {errors.age && 'Please enter number for age.'}
 
         <select name='orige' ref={register({ required: true })} >
-          <option>Argentino</option>
-          <option>Brasil</option>
-          <option>Chile</option>
+          <option value ="Argentina">Argentino</option>
+          <option value ="Brasil">Brasil</option>
+          <option value ="Chile">Chile</option>
 
         </select>
         
